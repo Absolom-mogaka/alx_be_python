@@ -24,15 +24,21 @@ class Library:
     def add_book(self, book):
         self.books.append(book)
 
-    def remove_book(self, title):
+    def check_out_book(self, title):
         for book in self.books:
-            if book.title == title:
-                self.books.remove(book)
-                return True
+            if book.title == title and not book.is_checked_out:
+                return book.check_out()
         return False
 
-    def find_book(self, title):
+    def return_book(self, title):
         for book in self.books:
-            if book.title == title:
-                return book
-        return None
+            if book.title == title and book.is_checked_out:
+                return book.return_book()
+        return False
+
+    def list_available_books(self):
+        available = []
+        for book in self.books:
+            if not book.is_checked_out:
+                available.append(book)
+        return available
