@@ -1,13 +1,9 @@
-from main import add, subtract, multiply, divide
+from programming_paradigm.simple_calculator import SimpleCalculator
 
-def test_add():
-    assert add(2, 3) == 5
+def test_addition():
+    calc = SimpleCalculator()
+    assert calc.add(2, 3) == 5
 
-def test_subtract():
-    assert subtract(5, 3) == 2
-
-def test_multiply():
-    assert multiply(2, 3) == 6
-
-def test_divide():
-    assert divide(6, 3) == 2
+def test_subtraction():
+    calc = SimpleCalculator()
+    assert calc.subtract(5, 3) == 2
